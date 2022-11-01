@@ -1,0 +1,35 @@
+ALGORITHM sum
+VAR
+    Set1: ARRAY_OF INTEGER[20];
+    i : INTEGER;
+    Set2:ARRAY_OF INTEGER[20];
+    j : INTEGER;
+    isdiff=BOOLEAN;
+    sum:INTEGER:=0;
+BEGIN
+Read(set1);
+    Read(set2);
+    FOR i FROM 0 TO set1.length DO
+        isdiff:=TRUE;
+        FOR j FROM 0 TO set2.length DO
+            IF (set1[i]=set2[j]) THEN
+                isdiff:=FALSE;
+            END_IF
+        END_FOR
+        IF (isdiff=TRUE) THEN
+            sum:=sum+set1[i]
+        END_IF
+    END_FOR
+    FOR j FROM 0 TO set2.length DO
+        isdiff:=TRUE;
+        FOR i FROM 0 TO set1.length DO
+            IF (set1[i]=set2[j]) THEN
+                isdiff:=FALSE;
+            END_IF
+        END_FOR
+        IF (isdiff=TRUE) THEN
+            sum:=sum+set2[i]
+        END_IF
+    END_FOR
+    write(sum)
+END
